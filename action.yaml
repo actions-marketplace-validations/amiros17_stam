@@ -21,21 +21,6 @@ runs:
       shell: bash
     - id: pull-crapi
       shell: bash
-      run: | 
-        curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
-        docker-compose pull
-        docker-compose -f docker-compose.yml --compatibility up -d
-    - id: pull-newman
-      shell: bash
-      run: docker pull postman/newman
-    - id: pull-crapi-collections
-      shell: bash
       run: |
-        mkdir collections
-        pushd collections
-        wget https://raw.githubusercontent.com/OWASP/crAPI/main/postman_collections/Crapi.postman_environment.json
-        wget https://raw.githubusercontent.com/OWASP/crAPI/develop/postman_collections/crAPI%20Accepted.postman_collection.json
-        wget https://github.com/OWASP/crAPI/raw/main/postman_collections/car.mp4
-        mkdir postman_collections
-        mv car.mp4 postman_collections/
-        popd
+        docker pull ghcr.io/amiros17/stam:initial
+        docker run ghcr.io/amiros17/stam:initial ${{ inputs.who-to-greet }}.
