@@ -3,6 +3,24 @@
 name: AmazingHelloWorld
 description: Yet Another Amazing Hello World Echo.
 
+inputs:
+  url:
+    description: 'url'
+    required: true
+    default: ''
+  username:
+    description: 'username'
+    required: true
+    default: ''
+  password:
+    description: 'password'
+    required: true
+    default: ''
+
+
 runs:
   using: 'docker'
-  image: 'docker://postman/newman'
+  image: url
+  credentials:
+     username: username
+     password: password
