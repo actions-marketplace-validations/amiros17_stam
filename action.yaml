@@ -1,6 +1,7 @@
 # This is a basic workflow to help you get started with Actions
 
 name: AmazingHelloWorld
+description: Yet Another Amazing Hello World Echo.
 
 # Controls when the workflow will run
 on:
