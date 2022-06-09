@@ -14,6 +14,7 @@ runs:
 
     # Install the newman command line utility and also install the html extra reporter
     - name: Install newman
+      shell: bash
       run: |
         npm install -g newman
         npm install -g newman-reporter-htmlextra
@@ -24,6 +25,7 @@ runs:
 
     # Run the POSTMAN collection
     - name: Run POSTMAN collection
+      shell: bash
       run: |
         newman run test.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
 
