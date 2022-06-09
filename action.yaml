@@ -3,11 +3,7 @@
 name: AmazingHelloWorld
 description: Yet Another Amazing Hello World Echo.
 
-on:
-  workflow_call:
-    
-
-jobs:
+runs:
   test-api:
     runs-on: ubuntu-latest
     steps:
