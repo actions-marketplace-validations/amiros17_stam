@@ -1,5 +1,5 @@
 # action.yml
-name: 'Amazing Hello World'
+name: 'AmazingHelloWorld'
 description: 'Greet someone and record the time'
 inputs:
   who-to-greet:  # id of input
