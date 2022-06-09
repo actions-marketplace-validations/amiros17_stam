@@ -8,11 +8,11 @@ inputs:
     description: 'url'
     required: true
     default: ''
-  username:
+  docker_username:
     description: 'username'
     required: true
     default: ''
-  password:
+  docker_password:
     description: 'password'
     required: true
     default: ''
@@ -21,6 +21,6 @@ inputs:
 runs:
   using: 'docker'
   image: url
-  credentials:
-     username: username
-     password: password
+  with:
+     username: docker_username
+     password: docker_password
