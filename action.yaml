@@ -21,6 +21,3 @@ inputs:
 runs:
   using: 'docker'
   image: url
-  with:
-     username: docker_username
-     password: docker_password
