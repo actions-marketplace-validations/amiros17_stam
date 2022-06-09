@@ -3,8 +3,9 @@
 name: AmazingHelloWorld
 description: Yet Another Amazing Hello World Echo.
 
+
 runs:
-  runs-on: ubuntu-latest
+  using: 'ubuntu-latest'
   steps:
     - name: Install Node
       uses: actions/setup-node@v1
@@ -32,4 +33,3 @@ runs:
       with:
         name: RunReports
         path: testResults
-
