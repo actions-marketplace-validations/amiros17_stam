@@ -21,6 +21,7 @@ runs:
 
     # Make directory to upload the test results
     - name: Make Directory for results
+      shell: bash
       run: mkdir -p testResults
 
     # Run the POSTMAN collection
