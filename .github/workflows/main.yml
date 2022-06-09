@@ -24,4 +24,4 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: AmazingHelloWorld
-        uses: amiros17/stam@V5
+        uses: amiros17/stam@V6
