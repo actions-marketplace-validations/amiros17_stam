@@ -19,16 +19,16 @@ runs:
       shell: bash
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
-    - id: pull.crapi
+    - id: pull-crapi
       shell: bash
       run: | 
         curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
         docker-compose pull
         docker-compose -f docker-compose.yml --compatibility up -d
-    - id: pull.newman
+    - id: pull-newman
       shell: bash
       run: docker pull postman/newman
-    - id: pull.crapi.collections
+    - id: pull-crapi-collections
       shell: bash
       run: |
         mkdir collections
