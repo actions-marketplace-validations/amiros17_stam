@@ -1,23 +1,16 @@
-# This is a basic workflow to help you get started with Actions
-
-name: AmazingHelloWorld
-description: Yet Another Amazing Hello World Echo.
-
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
 inputs:
-  url:
-    description: 'url'
+  who-to-greet:  # id of input
+    description: 'Who to greet'
     required: true
-    default: ''
-  docker_username:
-    description: 'username'
-    required: true
-    default: ''
-  docker_password:
-    description: 'password'
-    required: true
-    default: ''
-
-
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: inputs.url
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
