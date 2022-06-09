@@ -5,4 +5,4 @@ description: Yet Another Amazing Hello World Echo.
 
 runs:
   using: 'docker'
-  image: 'postman/newman'
+  image: 'docker://postman/newman'
