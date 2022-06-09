@@ -20,4 +20,4 @@ inputs:
 
 runs:
   using: 'docker'
-  image:  ${{ inputs.url }}
+  image: inputs.url
