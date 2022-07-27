@@ -1,10 +1,18 @@
 name: 'AmazingHelloWorld'
 description: 'Greet someone 1 2 3 4 5 6 7 8 9 10!!'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  base-path:
+    description: 'Base path for postman files'
     required: true
-    default: 'World'
+    default: './'
+  postman-collection-filename:
+    description: 'Postman collection file name'
+    required: true
+    default: 'collection.postman_collection.json'
+  postman-environment-filename:
+    description: 'Postman environment file name'
+    required: true
+    default: 'environment.postman_environment.json'
 outputs:
   random-number:
     description: "Random number"
@@ -31,4 +39,4 @@ runs:
       shell: bash
       run: |
         docker pull ghcr.io/pynt-io/pynt:latest
-        docker run -v /Users/admin/AmazingProject/api_tests:/etc/pynt/ --rm --network="host"  ghcr.io/pynt-io/pynt:latest -c my_collection.postman_collection.json -e my_environment.postman_environment.json
+        docker run -v ${{ inputs.base-path }}:/etc/pynt/ --rm --network="host"  ghcr.io/pynt-io/pynt:latest -c ${{ inputs.postman-collection-filename }} -e ${{ inputs.postman-environment-filename }}
