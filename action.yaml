@@ -39,6 +39,6 @@ runs:
     - id: pull_pynt
       shell: bash
       run: |
-        echo docker run -v "${{ inputs.base-path }}":/etc/pynt/ --rm --network="host"  ghcr.io/pynt-io/pynt:latest -c "/etc/pynt/${{ inputs.postman-collection-filename }}" -e "/etc/pynt/${{ inputs.postman-environment-filename }}"
+        echo docker run -v "${{ inputs.base-path }}":/etc/pynt/ --rm --network="host"  ghcr.io/pynt-io/pynt:latest -c "${{ inputs.postman-collection-filename }}" -e "${{ inputs.postman-environment-filename }}"
         docker pull ghcr.io/pynt-io/pynt:latest
-        docker run -v "${{ inputs.base-path }}":/etc/pynt/ --rm --network="host"  ghcr.io/pynt-io/pynt:latest -c "/etc/pynt/${{ inputs.postman-collection-filename }}" -e "/etc/pynt/${{ inputs.postman-environment-filename }}"
+        docker run -v "${{ inputs.base-path }}":/etc/pynt/ --rm --network="host"  ghcr.io/pynt-io/pynt:latest -c "${{ inputs.postman-collection-filename }}" -e "${{ inputs.postman-environment-filename }}"
