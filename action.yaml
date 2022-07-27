@@ -14,13 +14,19 @@ runs:
   steps:
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
+    - id: pull_crapi
+      run: | 
+        curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
+        docker-compose pull
+        docker-compose -f docker-compose.yml --compatibility up -d
+      
     - id: random-number-generator
       run: echo "::set-output name=random-number::$(echo $RANDOM)"
       shell: bash
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
-    - id: pull-crapi
+    - id: pull_pynt
       shell: bash
       run: |
-        docker pull ghcr.io/amiros17/stam:initial
-        docker run ghcr.io/amiros17/stam:initial ${{ inputs.who-to-greet }}.
+        docker pull ghcr.io/pynt-io/pynt:latest
+        docker run -v /Users/admin/AmazingProject/api_tests:/etc/pynt/ --rm --network="host"  ghcr.io/pynt-io/pynt:latest -c my_collection.postman_collection.json -e my_environment.postman_environment.json
